@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Login page</title>
+</head>
+<body>
+   <div class="container">
+    <span><h2>Login Here</h2></span>
+    <form action="/">
+    <label for="name">Username</label>
+    <input type="text" placeholder="Enter your full name" id="name"required>
+    <label for="pass">Password</label>
+    <input type="password" placeholder="Enter your password" id="pass"required>
+    <button type="button" class="" id="btn">Login </button>
+    </form>
+    <div class="erro"></div>
+   </div>
+   
+   <script>
+
+ const user_name = document.querySelector('#name');
+ const password = document.querySelector('#pass');
+ const btn_login = document.querySelector('#btn');
+ var Erro = document.querySelector('.erro');
+ 
+ 
+
+  function init(){
+    let checker = '';
+    let isEmpty = {};
+
+    if (user_name.value.toString() == checker  && password.value.toString()== checker){
+     
+        return false;
+     
+    }
+
+    else {return true}
+  }
+
+
+  function validate(){
+    if (init()){
+      let  name = 'zainab musa gale'
+    
+    let days = ['Sunday','Monday','Tuesday','Wednesday','Thuesday','Friday','Saturday']
+    let time = new Date();
+
+    
+    if (user_name.value.toString().toLowerCase() == name 
+    && password.value.toString() == days[time.getDay()]){
+
+        location.assign('syllabus.html')
+    
+       }
+       if (user_name.value.toString().toLowerCase() != name
+       && password.value.toString() != days[time.getDay()]){
+           Erro.innerHTML = 'User name or password is incorret!'
+       }
+     else if(user_name.value.toString().toLowerCase() != name){
+        Erro.innerHTML ='User name is incorrect!'
+    }
+    else if(password.value.toString() != days[time.getDay()]){
+        Erro.innerHTML = 'Password is incorrect!'
+    }
+    else{
+        Erro.innerHTML = ''
+    }
+    
+    }
+    if(user_name.value.toString().toLowerCase() ==''){
+        Erro.innerHTML ="Username can't be empty"
+    }
+    else if(password.value.toString() ==''){
+        Erro.innerHTML ="password can't be empty"
+    }
+  }
+   
+ btn_login.addEventListener('click',validate)
+   
+   
+   </script>
+</body>
+</html>
